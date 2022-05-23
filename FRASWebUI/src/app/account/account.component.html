@@ -1,0 +1,52 @@
+<div class="userMain">
+
+    <div *ngIf="viewedUserIndex == undefined">
+        <div class="headsearch">
+            <div class="webdesigntuts-workshop">
+                <input class="forInput" type="text" placeholder="Search here..." required (change)="getData(searchVal.value)" #searchVal>
+                <button (click)="searchVal.value=''" (click)="ngOnInit();" class="clear">Clear</button>
+                <!-- <button class="clear">Clear</button> -->
+            </div>
+        </div>
+        <table>
+            <!-- <table *ngIf="viewedUserIndex == undefined"> -->
+            <thead>
+                <tr>
+                    <th>
+                        <H3>Accounts</H3>
+                    </th>
+                </tr>
+    
+                <tr>
+                    
+                    <th>Name</th>
+                    <th>ID No.</th>
+                    <th>Department</th>
+                    <th>College Name</th>
+                    <th>On Leave</th>
+                    <th>Resigned</th>
+                    <th>Actions</th>
+                </tr>
+                <!-- </thead> -->
+                <tbody>
+                    <tr *ngFor="let account of accounts; index as i">
+                        
+                        <td>{{ account.name }}</td>
+                        <td>{{ account.id }}</td>
+                        <td>{{ account.department }}</td>
+                        <td>{{ account.collegeName }}</td>
+                        <td>{{ account.onLeave }}</td>
+                        <td>{{ account.resigned }} <fa-icon (click)="setResigned(i, tf)" [icon]="faTrash"></fa-icon></td>
+                        
+                        <td>
+                            <fa-icon (click)="deleteUser(i)" [icon]="faTrash"></fa-icon>
+                            <fa-icon (click)="viewUserData(i)" [icon]="faEdit"></fa-icon>
+                        </td>
+                    </tr>
+                </tbody>
+              
+        </table>
+    </div>
+    <!-- <edit-user *ngIf="viewedUserIndex != undefined" [account]="accounts[viewedUserIndex]" (backEvent)="handleBackEvent($event)"></edit-user> -->
+    
+</div>
