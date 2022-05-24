@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { Account } from 'src/app/model/Account';
+import { Account } from 'src/app/model/user.model';
 import { ApiService } from 'src/app/shared/api.service';
 @Component({
   selector: 'app-account',
@@ -21,14 +21,12 @@ export class AccountComponent implements OnInit {
    }
  
    async search(id: any){
-    //  console.log(id);
-    //  console.log(typeof(id));
     var result = await this.api.get(`/facial-recognition-syste-c82ae/us-central1/api/user/getAccount/${id}`);
     var temp: Array<Account> = [];
-    console.log(result);
     if (result.success) {
-      console.log("asdasd");
+
       result.data.forEach((json: any) => {
+        
         var tempU = Account.fromJson(json.id, json);
         if (tempU != null) temp.push(tempU);
       });
@@ -74,7 +72,10 @@ export class AccountComponent implements OnInit {
     this.viewedUserIndex = i;
    }
  
-   
+   async resetDB(){
+     var result = await this.api.patch('/user/reset');
+     this.getData();
+   }
    async getData(term?: any) {
      if (term == undefined || term == null || term=='') {
        this.accounts = await this.getAll();
