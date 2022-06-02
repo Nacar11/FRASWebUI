@@ -1,0 +1,184 @@
+// .userMain {
+    
+//     width: 100%;
+//     height: 100%;
+//     display: grid;
+//     align-content: center;
+//     justify-content: center;
+    
+//     font-family: 'Montserrat', sans-serif;
+//     color: black;
+//     font-size: 14px;
+//     letter-spacing: 1px;
+//     table {
+//         position: relative;
+//         height: 560px;
+//         width: 405px;
+//         margin: auto;
+//         padding: 600px;
+//         background-color: white;
+//         background-size: cover;
+//         // border-bottom: solid 5px skyblue;
+//         // border-left: solid 5px skyblue;
+//         // border-right: solid 5px skyblue;
+//         border-radius:30px;
+//         box-shadow: 0px 30px 60px -5px #000;
+        
+        
+        
+        
+//         min-width: 80vw;
+//         // text-align: left;
+//         H3{
+//             padding-left: 10px;
+//         }
+//         tr {
+//             padding: 160px;
+//         }
+//         td {
+            
+//             padding: 8px;
+//             fa-icon {
+//                 padding-right: 12px;
+//                 cursor: pointer;
+//             }
+//         }
+//     }
+//     h3,
+//     button {
+//         cursor: pointer;
+//         font-family: 'Cabin', helvetica, arial, sans-serif;
+//         font-size: 25px;
+//         font-weight: 400;
+//     }
+// }
+
+
+
+// .headsearch {
+//     padding: 45px;
+//     padding-left:20px;
+    
+    
+// }
+
+
+
+
+// /*-------------------------------------*/
+
+// @import url(https://fonts.googleapis.com/css?family=Cabin:400);
+// .webdesigntuts-workshop {
+//     // position: center;
+//     // text-align: center;
+//     margin-left: -18px;
+//     width: 700px;
+//     padding-bottom: 20px;
+// }
+
+
+
+
+
+
+
+// .webdesigntuts-workshop input {
+//     background: #222;
+//     background: linear-gradient(#333, #222);
+//     border: 1px solid #444;
+//     border-radius: 5px 0 0 5px;
+//     box-shadow: 0 2px 0 #000;
+//     color: #888;
+//     display: block;
+//     float: left;
+//     font-family: 'Cabin', helvetica, arial, sans-serif;
+//     font-size: 13px;
+//     font-weight: 400;
+//     height: 40px;
+//     margin: 0;
+//     padding: 0 10px;
+//     text-shadow: 0 -1px 0 #000;
+//     width: 200px;
+// }
+
+// .ie .webdesigntuts-workshop input {
+//     line-height: 40px;
+// }
+
+// .webdesigntuts-workshop input::-webkit-input-placeholder {
+//     color: #888;
+// }
+
+// .webdesigntuts-workshop input:-moz-placeholder {
+//     color: #888;
+// }
+
+// .webdesigntuts-workshop input:focus {
+//     animation: glow 800ms ease-out infinite alternate;
+//     background: #222922;
+//     background: linear-gradient(#333933, #222922);
+//     border-color: darkorange;
+//     box-shadow: 0 0 5px rgba(0, 255, 0, .2), inset 0 0 5px rgba(0, 255, 0, .1), 0 2px 0 #000;
+//     color: #efe;
+//     outline: none;
+// }
+
+// // .webdesigntuts-workshop input:focus::-webkit-input-placeholder {
+// //     color: #efe;
+// // }
+
+// // .webdesigntuts-workshop input:focus:-moz-placeholder {
+// //     color: #efe;
+// // }
+// // clear
+// .webdesigntuts-workshop button {
+//     background: #222;
+//     background: linear-gradient(#333, #222);
+//     box-sizing: border-box;
+//     border: 1px solid #444;
+//     border-left-color: #000;
+//     border-radius: 0 5px 5px 0;
+//     box-shadow: 0 2px 0 #000;
+//     color: #fff;
+//     display: block;
+//     float: left;
+//     font-family: 'Cabin', helvetica, arial, sans-serif;
+//     font-size: 13px;
+//     font-weight: 400;
+//     height: 40px;
+//     line-height: 40px;
+//     margin: 0;
+//     padding: 0;
+//     position: relative;
+//     text-shadow: 0 -1px 0 #000;
+//     width: 80px;
+// }
+
+// .webdesigntuts-workshop button:hover,
+// .webdesigntuts-workshop button:focus {
+//     background: #292929;
+//     background: linear-gradient(#393939, #292929);
+//     color: darkorange;
+//     outline: none;
+// }
+
+// .webdesigntuts-workshop button:active {
+//     background: #292929;
+//     background: linear-gradient(#393939, #292929);
+//     box-shadow: 0 1px 0 #000, inset 1px 0 1px #222;
+//     top: 1px;
+// }
+
+
+table {
+    width: 100%;
+  }
+
+  .mat-form-field{
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .container{
+    max-width: 100%;
+  }

@@ -1,0 +1,27 @@
+<div class="mainContent">
+    <div class="login">
+        <h2 class="active"> Sign Up </h2>
+        <form class="inputs" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <label for="NAME">Name</label>
+            <input type="text" name="NAME" formControlName="fcName" />
+            <label for="DEPT">Department</label>
+            <input type="text" name="DEPT" formControlName="fcDept" />
+            <label for="COLNAME">College Name</label>
+            <input type="text" name="COLNAME" formControlName="fcColName" />
+
+
+           <!-- <label for="ONLEAVE"> <input type="checkbox" name="ONLEAVE" formControlName="fcOnLeave">On Leave</label>
+           <label for="ONRESIGNED"> <input type="checkbox" name="ONRESIGNED" formControlName="fcOnResigned">On Resigned</label> -->
+
+            
+
+            <p>{{ error }}</p>
+            <p>{{registerForm.value | json}}</p>
+            <p>{{ registerForm.status }}</p>
+            <button type="submit" [disabled]="!registerForm.valid">CREATE ACCOUNT</button>
+        </form>
+        <div class="actions">
+            <button (click)="nav('login')">BACK TO LOGIN</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
+<mat-toolbar color="primary">
+    <button mat-icon-button   (click)="nav('attendancelist')" class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon >menu</mat-icon>
+    </button>
+    <span>Face Recognition Attendance System</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button color="accent" (click)="openDialogAcc()">Add Account</button>
+    <button mat-raised-button color="accent" (click)="openDialogAtt()">Add Attendance</button>
+    <button (click)="nav('accounts')" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>supervisor_account</mat-icon>
+    </button>
+    <button (click)="nav('login')" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>call_missed_outgoing</mat-icon>
+    </button>
+    
+  </mat-toolbar>
+  

@@ -1,0 +1,36 @@
+.default-layout-body {
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    grid-template-rows: auto, auto;
+    overflow: hidden;
+    .nav {
+        position: sticky;
+    }
+    .content {
+        min-height: calc(100vh - 102px);
+        overflow-y: auto;
+        display: grid;
+        grid-auto-flow: row;
+        grid-template-rows: 0 auto 51px;
+        align-items: space-between;
+    }
+
+   
+    .tp-container {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #eee;
+        height:100%;
+     }
+     .tp-section {
+        display: flex;
+        align-content: center;
+        align-items: center;
+        height: 60px;
+        width:100px;   
+     }
+}

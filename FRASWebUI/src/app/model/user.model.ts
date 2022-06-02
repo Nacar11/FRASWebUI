@@ -8,17 +8,17 @@ export class Account {
     public department: string,
     public collegeName: string,
     public onLeave: boolean,
-    public resigned: boolean,
+    public onResigned: boolean,
   ) {}
 
   log() {
     console.log(
-      `${this.name} ${this.id} ${this.department} ${this.collegeName} ${this.onLeave} ${this.resigned}`,
+      `${this.name} ${this.id} ${this.department} ${this.collegeName} ${this.onLeave} ${this.onResigned}`,
     );
   }
   static fromJson(id: string, json: any): Account | null {
     try {
-      return new Account(json.name, json.id, json.department, json.collegeName, json.onLeave, json.resigned);
+      return new Account(json.name, json.id, json.department, json.collegeName, json.onLeave, json.onResigned);
     } catch (error) {
       console.log(error);
       return null;
@@ -31,7 +31,7 @@ export class Account {
       department: this.department,
       collegeName: this.collegeName,
       onLeave: this.onLeave,
-      resigned: this.resigned,
+      resigned: this.onResigned,
     };
   }
 }

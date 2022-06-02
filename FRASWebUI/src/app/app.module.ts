@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AccountComponent } from './account/account.component';
-
-
+import { attendanceComponent } from './screens/account/attendance.component';
+import { LoginComponent } from './screens/login/login.component';
+import { DefaultLayoutComponent } from './layouts/default-layout/default-layout.component';
+import { NavbarComponent } from './layouts/navbar/navbar.component';
+import { FooterComponent } from './layouts/footer/footer.component';
+import { RegisterComponent } from './screens/register/register.component';
 
 
 
@@ -16,14 +19,43 @@ import { SharedModule } from './shared/shared.module';
 import { ApiService } from './shared/api.service';
 
 
+
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthService } from './shared/auth.service';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
+import {addAttendannceComponent } from './screens/addAttendance/addAttendance';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import { EditComponent } from './screens/edit/edit.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { AccountsComponent } from './screens/accounts/accounts.component';
+import { AddAccountComponent } from './screens/add-account/add-account.component';
 
+
+ 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AccountComponent
+    attendanceComponent,
+    LoginComponent,
+    DefaultLayoutComponent,
+    NavbarComponent,
+    FooterComponent,
+    RegisterComponent,
+    addAttendannceComponent,
+    EditComponent,
+    AccountsComponent,
+    AddAccountComponent,
+    
   
   ],
   imports: [
@@ -32,7 +64,22 @@ import { AuthService } from './shared/auth.service';
     AppRoutingModule,
     ReactiveFormsModule,
     SharedModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatSidenavModule
+    
   ],
   providers: [ApiService, AuthService],
   bootstrap: [AppComponent]

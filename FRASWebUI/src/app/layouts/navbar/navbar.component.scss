@@ -1,0 +1,39 @@
+// .nav-body {
+//     height: 100px;
+//     margin-top: -5px;
+//     padding: 0 16px 0 16px;
+//     display: grid;
+//     background-color: navy;
+//     grid-template-columns: 500px auto 60px;
+//     align-items: center;
+//     justify-items: center;
+//     color: #edf5e1;
+//     .site-title {
+//         align-items: center;
+//         justify-items: center;
+//         h3 {
+//             cursor: pointer;
+//             padding-right: 100px;
+//             color: WHITE;
+//             font-size: 26px;
+//             font-family: 'Montserrat', sans-serif;
+         
+//             font-family: 'Advent Pro';
+//             font-weight: normal;
+//             line-height: 48px;
+//             // padding-bottom: 10px;
+//         }
+//     }
+//     h5 {
+//         font-family: 'Montserrat', sans-serif;
+//         margin: 0 0px 0 8px;
+//         cursor: pointer;
+//     }
+// }
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+  button{
+    margin-right: 5px;
+  }
