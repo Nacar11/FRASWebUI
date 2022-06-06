@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { attendanceComponent } from './screens/account/attendance.component';
@@ -10,37 +10,32 @@ import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { RegisterComponent } from './screens/register/register.component';
 
-
-
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { ApiService } from './shared/api.service';
 
-
-
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthService } from './shared/auth.service';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatDialogModule} from '@angular/material/dialog';
-import {addAttendannceComponent } from './screens/addAttendance/addAttendance';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { addAttendannceComponent } from './screens/addAttendance/addAttendance';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatSortModule} from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 import { EditComponent } from './screens/edit/edit.component';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { AccountsComponent } from './screens/accounts/accounts.component';
 import { AddAccountComponent } from './screens/add-account/add-account.component';
-
-
- 
+import { NgxCSVtoJSONModule } from 'ngx-csvto-json';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 @NgModule({
   declarations: [
@@ -55,17 +50,17 @@ import { AddAccountComponent } from './screens/add-account/add-account.component
     EditComponent,
     AccountsComponent,
     AddAccountComponent,
-    
-  
+    ScheduleComponent,
   ],
   imports: [
+    NgxCSVtoJSONModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     SharedModule,
     FontAwesomeModule,
-    
+
     BrowserAnimationsModule,
     MatIconModule,
     MatToolbarModule,
@@ -78,10 +73,9 @@ import { AddAccountComponent } from './screens/add-account/add-account.component
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatSidenavModule
-    
+    MatSidenavModule,
   ],
   providers: [ApiService, AuthService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

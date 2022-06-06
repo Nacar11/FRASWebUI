@@ -6,10 +6,7 @@ import { DefaultLayoutComponent } from './layouts/default-layout/default-layout.
 import { RegisterComponent } from './screens/register/register.component';
 import { addAttendannceComponent } from './screens/addAttendance/addAttendance';
 import { AccountsComponent } from './screens/accounts/accounts.component';
-
-
-
-
+import { ScheduleComponent } from './schedule/schedule.component';
 
 const routes: Routes = [
   {
@@ -17,11 +14,11 @@ const routes: Routes = [
     component: DefaultLayoutComponent,
     children: [
       {
-        path:'',
+        path: '',
         component: LoginComponent,
       },
       {
-        path:'login',
+        path: 'login',
         component: LoginComponent,
       },
       {
@@ -32,19 +29,21 @@ const routes: Routes = [
         path: 'accounts',
         component: AccountsComponent,
       },
-    
+
       {
         path: 'register',
         component: RegisterComponent,
       },
+      {
+        path: 'schedule',
+        component: ScheduleComponent,
+      },
     ],
   },
-
-
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
