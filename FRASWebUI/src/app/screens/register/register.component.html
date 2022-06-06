@@ -1,27 +1,72 @@
 <div class="mainContent">
-    <div class="login">
-        <h2 class="active"> Sign Up </h2>
-        <form class="inputs" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-            <label for="NAME">Name</label>
+  <div class="login">
+    <div class="actions" mat-dialog-action [align]="'center'">
+      <h2 class="active"> Sign Up </h2>
+      
+        <form class="inputs" [formGroup]="accountForm">
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input type="text" name="NAME" formControlName="name" matInput placeholder="Full Name">
+                <mat-icon matSuffix>perm_identity</mat-icon>
+              </mat-form-field>
+              
+
+              <mat-form-field appearance="outline">
+                <mat-label>Department</mat-label>
+                <input type="text" name="DEPARTMENT" formControlName="department" matInput placeholder="Ex. SCS">
+                <mat-icon matSuffix>store</mat-icon>
+              </mat-form-field>
+              
+              <mat-form-field appearance="outline">
+                <mat-label>College Name</mat-label>
+                <input type="text" name="COLLEGENAME" formControlName="collegeName" matInput placeholder="EX.University of San Jose - Recoletos">
+                <mat-icon matSuffix>class</mat-icon>
+              </mat-form-field>
+              
+
+              <!-- <section class="example-section">
+                <label class="example-margin">On leave:</label>
+                <mat-radio-group [(ngModel)]="labelPosition">
+                  <mat-radio-button class="example-margin" value="y">Yes:</mat-radio-button>
+                  <mat-radio-button class="example-margin" value="n">No:</mat-radio-button>
+                </mat-radio-group>
+              </section>
+
+              <section class="example-section">
+                <label class="example-margin">Resigned:</label>
+                <mat-radio-group [(ngModel)]="labelPosition">
+                  <mat-radio-button class="example-margin" value="y">Yes:</mat-radio-button>
+                  <mat-radio-button class="example-margin" value="n">No:</mat-radio-button>
+                </mat-radio-group>
+              </section> -->
+             </form>
+            </div>
+
+
+
+            <!-- <label for="NAME">Name</label>
             <input type="text" name="NAME" formControlName="fcName" />
-            <label for="DEPT">Department</label>
-            <input type="text" name="DEPT" formControlName="fcDept" />
-            <label for="COLNAME">College Name</label>
-            <input type="text" name="COLNAME" formControlName="fcColName" />
+            <label for="DEPT">Date</label>
+            <input type="text" name="DATE" formControlName="fcDate" />
+            <label for="COLNAME">Time</label>
+            <input type="text" name="TIME" formControlName="fcTime" />
+            <label for="COLNAME">Class Code</label>
+            <input type="text" name="CLASSCODE" formControlName="fcClassCode" />
+            <label for="COLNAME">Department</label>
+            <input type="text" name="DEPT" formControlName="fcDept" /> -->
+            
 
 
-           <!-- <label for="ONLEAVE"> <input type="checkbox" name="ONLEAVE" formControlName="fcOnLeave">On Leave</label>
-           <label for="ONRESIGNED"> <input type="checkbox" name="ONRESIGNED" formControlName="fcOnResigned">On Resigned</label> -->
+           
 
             
 
-            <p>{{ error }}</p>
-            <p>{{registerForm.value | json}}</p>
-            <p>{{ registerForm.status }}</p>
-            <button type="submit" [disabled]="!registerForm.valid">CREATE ACCOUNT</button>
-        </form>
-        <div class="actions">
-            <button (click)="nav('login')">BACK TO LOGIN</button>
-        </div>
-    </div>
-</div>
+            <!-- <p>{{ error }}</p>
+            <p>{{attendanceForm.value | json}}</p>
+            <p>{{ attendanceForm.status }}</p> -->
+            <div class="actions" mat-dialog-action [align]="'center'">
+            <button  (click)="submit()" class="submit" type="submit" >Create Account</button>
+              <button mat-raised-button color="warn" (click)="nav('login')">BACK TO LOGIN</button>
+          </div>
+      </div>
+  </div>

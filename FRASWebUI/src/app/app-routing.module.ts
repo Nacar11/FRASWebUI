@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { attendanceComponent } from './screens/account/attendance.component';
+import { attendanceComponent } from './screens/attendance/attendance.component';
 import { LoginComponent } from './screens/login/login.component';
 import { DefaultLayoutComponent } from './layouts/default-layout/default-layout.component';
 import { RegisterComponent } from './screens/register/register.component';
 import { addAttendannceComponent } from './screens/addAttendance/addAttendance';
 import { AccountsComponent } from './screens/accounts/accounts.component';
+import { AddAccountComponent } from './screens/add-account/add-account.component';
+import { ScheduleComponent } from './screens/schedule/schedule.component';
 
 
 
@@ -37,6 +39,11 @@ const routes: Routes = [
         path: 'register',
         component: RegisterComponent,
       },
+      {
+        path: 'schedule',
+        component: ScheduleComponent,
+      },
+
     ],
   },
 

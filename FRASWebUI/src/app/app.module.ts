@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { attendanceComponent } from './screens/account/attendance.component';
+import { attendanceComponent } from './screens/attendance/attendance.component';
 import { LoginComponent } from './screens/login/login.component';
 import { DefaultLayoutComponent } from './layouts/default-layout/default-layout.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
@@ -38,6 +38,10 @@ import { EditComponent } from './screens/edit/edit.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { AccountsComponent } from './screens/accounts/accounts.component';
 import { AddAccountComponent } from './screens/add-account/add-account.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
+import { SingleAttendanceComponent } from './screens/single-attendance/single-attendance.component';
+import { ScheduleComponent } from './screens/schedule/schedule.component';
 
 
  
@@ -55,6 +59,8 @@ import { AddAccountComponent } from './screens/add-account/add-account.component
     EditComponent,
     AccountsComponent,
     AddAccountComponent,
+    SingleAttendanceComponent,
+    ScheduleComponent,
     
   
   ],
@@ -78,7 +84,9 @@ import { AddAccountComponent } from './screens/add-account/add-account.component
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatCheckboxModule,
+    MatRadioModule
     
   ],
   providers: [ApiService, AuthService],

@@ -1,1 +1,71 @@
-<p>add-account works!</p>
+<div class="mainContent">
+    <div class="login">
+        <h2 class="active"> Account Form </h2>
+        <form class="inputs" [formGroup]="accountForm">
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input type="text" name="NAME" formControlName="name" matInput placeholder="Full Name">
+                <mat-icon matSuffix>perm_identity</mat-icon>
+              </mat-form-field>
+              
+
+              <mat-form-field appearance="outline">
+                <mat-label>Department</mat-label>
+                <input type="text" name="DEPARTMENT" formControlName="department" matInput placeholder="Ex. SCS">
+                <mat-icon matSuffix>store</mat-icon>
+              </mat-form-field>
+              
+              <mat-form-field appearance="outline">
+                <mat-label>College Name</mat-label>
+                <input type="text" name="COLLEGENAME" formControlName="collegeName" matInput placeholder="EX.University of San Jose - Recoletos">
+                <mat-icon matSuffix>class</mat-icon>
+              </mat-form-field>
+              
+
+              <!-- <section class="example-section">
+                <label class="example-margin">On leave:</label>
+                <mat-radio-group [(ngModel)]="labelPosition">
+                  <mat-radio-button class="example-margin" value="y">Yes:</mat-radio-button>
+                  <mat-radio-button class="example-margin" value="n">No:</mat-radio-button>
+                </mat-radio-group>
+              </section>
+
+              <section class="example-section">
+                <label class="example-margin">Resigned:</label>
+                <mat-radio-group [(ngModel)]="labelPosition">
+                  <mat-radio-button class="example-margin" value="y">Yes:</mat-radio-button>
+                  <mat-radio-button class="example-margin" value="n">No:</mat-radio-button>
+                </mat-radio-group>
+              </section> -->
+             </form>
+
+
+
+
+            <!-- <label for="NAME">Name</label>
+            <input type="text" name="NAME" formControlName="fcName" />
+            <label for="DEPT">Date</label>
+            <input type="text" name="DATE" formControlName="fcDate" />
+            <label for="COLNAME">Time</label>
+            <input type="text" name="TIME" formControlName="fcTime" />
+            <label for="COLNAME">Class Code</label>
+            <input type="text" name="CLASSCODE" formControlName="fcClassCode" />
+            <label for="COLNAME">Department</label>
+            <input type="text" name="DEPT" formControlName="fcDept" /> -->
+            
+
+
+           <!-- <label for="ONLEAVE"> <input type="checkbox" name="ONLEAVE" formControlName="fcOnLeave">On Leave</label>
+           <label for="ONRESIGNED"> <input type="checkbox" name="ONRESIGNED" formControlName="fcOnResigned">On Resigned</label> -->
+
+            
+
+            <!-- <p>{{ error }}</p>
+            <p>{{attendanceForm.value | json}}</p>
+            <p>{{ attendanceForm.status }}</p> -->
+            <button  (click)="submit()" class="submit" type="submit">Create Account</button>
+        <div mat-dialog-action [align]="'center'">
+        <button  mat-raised-button color="warn" mat-dialog-close>Close</button>
+        </div>
+    </div>
+</div>

@@ -6,19 +6,22 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 
 
 import { MockAPIService } from 'src/app/shared/mock-api.service';
-import { EditComponent } from 'src/app/screens/edit/edit.component';
+import { EditComponent } from '../edit/edit.component';
 
 @Component({
-  selector: 'app-accounts',
-  templateUrl: './accounts.component.html',
-  styleUrls: ['./accounts.component.scss']
+  selector: 'app-schedule',
+  templateUrl: './schedule.component.html',
+  styleUrls: ['./schedule.component.scss']
 })
-export class AccountsComponent implements OnInit {
-  displayedColumns: string[] = ['Name', 'ID', 'Department', 'collegeName', 'onLeave', 'resigned', 'action'];
+export class ScheduleComponent implements OnInit {
+
+  displayedColumns: string[] = ['offer_no', 'subj_no', 'subj_name',
+  'sch_time', 'sy', 'term', 'dept_code'];
   dataSource = new MatTableDataSource<any>();
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -31,17 +34,27 @@ export class AccountsComponent implements OnInit {
 
 
 
-  accounts: Array<Account> = [];
-  constructor(private api: HttpClient, 
+  attendance: Array<Account> = [];
+   //icons
+   
+   
+   constructor(private api: HttpClient, 
               private mAPI: MockAPIService, 
-              private dialog: MatDialog) {}
-
-  ngOnInit(): void {
-    this.getAllAccounts();
+              private dialog: MatDialog,
+              private router: Router) {}
+ 
+   ngOnInit(): void {
+    //  this.getData();
+    //  this.getAll();
+    this.getAllSchedule();
+   }
+   nav(destination: string) {
+    this.router.navigate([destination]);
   }
 
-  async getAllAccounts(){
-    this.mAPI.getAllAccounts()
+  async getAllSchedule(){
+    console.log("asdada");
+    this.mAPI.getAllSchedule()
     .subscribe({
       next:(res)=>{
         console.log(res.data);
@@ -64,25 +77,9 @@ export class AccountsComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-
   editAttendance(element:any){
-      this.dialog.open(EditComponent,{
-        width:'40%', height:'70%', data: element
-      })
-  }
-  deleteAccount(element: any){
-    console.log(element);
-    console.log(typeof(element.id));
-    this.mAPI.deleteAccount(element.id).subscribe({
-      next:(res)=>{
-        alert("Attendance Deleted");
-        console.log(res); 
-        this.getAllAccounts();
-      },
-      error:()=>{
-        alert("Failed to Delete Attendance");
-      }
+    this.dialog.open(EditComponent,{
+      width:'40%', height:'70%', data: element
     })
-  }
-  
+}
 }

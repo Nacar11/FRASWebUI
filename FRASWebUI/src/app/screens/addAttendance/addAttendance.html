@@ -2,12 +2,16 @@
     <div class="login">
         <h2 class="active"> Attendance Form </h2>
         <form class="inputs" [formGroup]="attendanceForm">
-            <mat-form-field appearance="outline">
-                <mat-label>Name</mat-label>
-                <input type="text" name="NAME" formControlName="name" matInput placeholder="Full Name">
+            
+
+              <mat-form-field appearance="outline">
+                <mat-label>Employee ID</mat-label>
+                <input type="text" name="EMPLOYEEID" formControlName="employeeID" matInput placeholder="Registered Employee ID">
                 <mat-icon matSuffix>perm_identity</mat-icon>
               </mat-form-field>
+
               
+
               <mat-form-field appearance="outline">
                 <mat-label>Date</mat-label>
                 <input type="text" name="DATE" formControlName="date" matInput placeholder="MM/DD/YYYY"  >
@@ -21,16 +25,16 @@
                 <mat-icon matSuffix>query_builder</mat-icon>
               </mat-form-field>
               
-              <mat-form-field appearance="outline">
+              <mat-form-field appearance="outline"> 
                 <mat-label>Class Code</mat-label>
-                <input type="text" name="CLASSCODE" formControlName="classCode" matInput placeholder="EX.BCL203">
+                <input type="text" name="CLASSCODE" formControlName="classcode" matInput placeholder="EX.BCL203">
                 <mat-icon matSuffix>class</mat-icon>
               </mat-form-field>
               
 
               <mat-form-field appearance="outline">
-                <mat-label>Department</mat-label>
-                <input type="text" name="DEPT" formControlName="deparment" matInput placeholder="Ex. SCS">
+                <mat-label>Remarks</mat-label>
+                <input type="text" name="REMARKS" formControlName="remarks" matInput placeholder="Comments">
                 <mat-icon matSuffix>store</mat-icon>
               </mat-form-field>
             </form>
@@ -60,7 +64,7 @@
             <!-- <p>{{ error }}</p>
             <p>{{attendanceForm.value | json}}</p>
             <p>{{ attendanceForm.status }}</p> -->
-            <button  (click)="submit()" class="submit" type="submit" [disabled]="!attendanceForm.valid">{{actionBtn}}</button>
+            <button  (click)="submit()" class="submit" type="submit">{{actionBtn}}</button>
         <div mat-dialog-action [align]="'center'">
         <button  mat-raised-button color="warn" mat-dialog-close>Close</button>
         </div>

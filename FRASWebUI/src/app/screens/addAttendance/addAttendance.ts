@@ -31,21 +31,14 @@ export class addAttendannceComponent implements OnInit {
 
   ngOnInit(): void {
     this.attendanceForm = this.formBuilder.group({
-    name: ['', Validators.required],
+    employeeID: [, Validators.required],
     date: ['', Validators.required],
     time: ['', Validators.required],
-    classCode: ['', Validators.required],
-    department: ['', Validators.required],
+    classcode: [123, Validators.required],
+    remarks: ['', Validators.required],
     })
 
-    if(this.editData){
-      this.actionBtn = "Update";
-      this.attendanceForm.controls['fcName'].setValue(this.editData.name);
-      this.attendanceForm.controls['fcDate'].setValue(this.editData.date);
-      this.attendanceForm.controls['fcTime'].setValue(this.editData.time);
-      this.attendanceForm.controls['fcTime'].setValue(this.editData.time);
-      this.attendanceForm.controls['fcDept'].setValue(this.editData.department);
-    }
+    
   }
   nav(destination: string) {
     this.router.navigate([destination]);
@@ -99,27 +92,31 @@ export class addAttendannceComponent implements OnInit {
   //   }
   // }
   submit(){
-    if(!this.editData){
-      console.log(this.editData);
+      console.log("asdasd");
       console.log(this.attendanceForm.value);
-    if(this.attendanceForm.valid){
+      console.log(this.attendanceForm.valid);
+      console.log(typeof(this.attendanceForm.value.employeeID));
+      this.attendanceForm.value.employeeID = parseInt(this.attendanceForm.value.employeeID)
+      this.attendanceForm.value.classcode = parseInt(this.attendanceForm.value.classcode)
+      console.log(typeof(this.attendanceForm.value.employeeID));
       this.api.addAttendance(this.attendanceForm.value)
       .subscribe({
         next:(res)=>{
-          console.log(res);
+          console.log(res.success);
+          console.log(res.data);
+          console.log(res.data.employeeID);
+          console.log("res");
           alert("Attendance Successfully Added");
           this.dialog.closeAll();
-          this.nav('account');
+          this.nav('attendancelist');
         },
         error:()=>{
           alert("Error Getting Attendance");
         }
       })
-    }
-  }
-  else{
-    this.updateAttendance();
-  }
+    
+  
+ 
   }
 
   updateAttendance(){

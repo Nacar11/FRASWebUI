@@ -1,75 +1,61 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/auth.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MockAPIService } from 'src/app/shared/mock-api.service';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss'],
+  styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  constructor(private router: Router, private auth: AuthService) {}
 
-  registerForm: FormGroup = new FormGroup({
-    fcName: new FormControl('', Validators.required),
-    fcDept: new FormControl('', Validators.required),
-    fcColName: new FormControl('', Validators.required),
-   
-  });
+  // isOnLeave: 'y'| 'n' = 'y';
+  // isResigned: 'y'| 'n' = 'y';
+  accountForm: FormGroup;
+  constructor(private dialog: MatDialog, 
+    private formBuilder: FormBuilder,
+    private router: Router, 
+    private auth: AuthService, 
+    private api: MockAPIService,
+  ){}
+  
 
-  error: string = '';
+  ngOnInit(): void {
+    this.accountForm = this.formBuilder.group({
+    name: ['', Validators.required],
+    id: ['', Validators.required],
+    department: ['', Validators.required],
+    collegeName: ['', Validators.required],
+    onLeave: ['', Validators.required],
+    resigned: ['', Validators.required],
+    })
 
-  ngOnInit(): void {}
+}
+nav(destination: string) {
+  this.router.navigate([destination]);
+}
 
-  onSubmit() {
-    // if (
-    //   this.registerForm.value['fcPassword'] !==
-    //   this.registerForm.value['fcPassword2']
-    // ) {
-    //   this.error = 'Password doesnt match!';
-    //   alert(this.error);
-    //   return;
-    // }
-    // if (!this.registerForm.valid) {
-    //   {
-    //     this.error = 'No fields must be empty';
-    //     console.log(this.error);
-    //     return;
-    //   }
-    // }
-    if (this.registerForm.valid) {
-      
-      var payload: {
-        name: string;
-        department: string;
-        collegeName: string;
-        onLeave: boolean;
-        onResigned: boolean;
-      };
-      payload = {
-        name: this.registerForm.value.fcName,
-        department: this.registerForm.value.fcDept,
-        collegeName: this.registerForm.value.fcColName,
-        onLeave: false,
-        onResigned: false
-
-      };
-      console.log(payload);
-      this.auth.register(payload).then((data) => {
-        console.log(data);
-        if (this.auth.authenticated) {
-          alert("Successfully Created Account");
-          this.nav('accounts');
-        // } else {
-        //   this.error = data.data;
-        //   console.log(this.error);
-        }
-      });
-    }
+submit(){
+  console.log(this.accountForm.value);
+  if(this.accountForm.valid){
+    this.api.addAttendance(this.accountForm.value)
+    .subscribe({
+      next:(res)=>{
+        console.log(res);
+        alert("Attendance Successfully Added");
+        this.dialog.closeAll();
+        this.nav('account');
+      },
+      error:()=>{
+        alert("Error Getting Attendance");
+      }
+    })
   }
+}
 
-  nav(destination: string) {
-    this.router.navigate([destination]);
-  }
+
+
 }

@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/shared/auth.service';
 import { addAttendannceComponent } from 'src/app/screens/addAttendance/addAttendance';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AddAccountComponent } from 'src/app/screens/add-account/add-account.component';
 
 @Component({
   selector: 'app-navbar',
@@ -35,8 +36,8 @@ export class NavbarComponent implements OnInit {
 
 
   openDialogAcc(){
-    this.dialog.open(addAttendannceComponent,{
-      width:'40%', height:'70%'
+    this.dialog.open(AddAccountComponent,{
+      width:'40%', height:'63%'
     })
   }
 }

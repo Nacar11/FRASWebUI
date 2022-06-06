@@ -6,11 +6,13 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 
 
 import { MockAPIService } from 'src/app/shared/mock-api.service';
 import { EditComponent } from 'src/app/screens/edit/edit.component';
+import { SingleAttendanceComponent } from '../single-attendance/single-attendance.component';
 
 @Component({
   selector: 'app-attendance',
@@ -18,7 +20,7 @@ import { EditComponent } from 'src/app/screens/edit/edit.component';
   styleUrls: ['./attendance.component.scss']
 })
 export class attendanceComponent implements OnInit {
-  displayedColumns: string[] = ['Name', 'Date', 'Time', 'Department', 'action'];
+  displayedColumns: string[] = ['Name', 'Date', 'Time', 'remark', 'action'];
   dataSource = new MatTableDataSource<any>();
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -31,20 +33,23 @@ export class attendanceComponent implements OnInit {
 
 
 
-  accounts: Array<Account> = [];
+  attendance: Array<Account> = [];
    //icons
    
    
    constructor(private api: HttpClient, 
               private mAPI: MockAPIService, 
-              private dialog: MatDialog) {}
+              private dialog: MatDialog,
+              private router: Router) {}
  
    ngOnInit(): void {
     //  this.getData();
     //  this.getAll();
     this.getAllAttendance();
    }
- 
+   nav(destination: string) {
+    this.router.navigate([destination]);
+  }
    async search(id: any) {
     
     try {
@@ -59,12 +64,12 @@ export class attendanceComponent implements OnInit {
           if (result.success== true) {
             var acco:Array<Account>=[];
             acco.push(Account.fromJson(id, result.data)!);
-            this.accounts = acco;
+            this.attendance = acco;
           }
           else {
             this.getAll();
           }
-          console.log(this.accounts);
+          console.log(this.attendance);
 
         });
       console.log(result);
@@ -84,10 +89,10 @@ export class attendanceComponent implements OnInit {
   }
 
   async deleteUser(i: number) {
-    var decision = confirm('Delete user ' + this.accounts[i].name);
+    var decision = confirm('Delete user ' + this.attendance[i].name);
     if (decision) {
       var result = await this.api.delete(
-        `http://localhost:5000/facial-recognition-syste-c82ae/us-central1/api/user/deleteAccount/${this.accounts[i].id}`
+        `http://localhost:5000/facial-recognition-syste-c82ae/us-central1/api/user/deleteAccount/${this.attendance[i].id}`
       ).subscribe((result: any) => {
         console.log(result.success);
         console.log(result.data);
@@ -104,17 +109,17 @@ export class attendanceComponent implements OnInit {
     }
   }
   async setResigned(i: number) {
-    var decision = confirm('Convert Status of ' + this.accounts[i].name);
+    var decision = confirm('Convert Status of ' + this.attendance[i].name);
     if (decision) {
       var body;
-      if (this.accounts[i].onResigned == true) {
+      if (this.attendance[i].onResigned == true) {
         body = false;
-      } else if (this.accounts[i].onResigned == false) {
+      } else if (this.attendance[i].onResigned == false) {
         console.log('asdad');
         body = true;
       }
       var result = await this.api.patch(
-        `http://localhost:5000/facial-recognition-syste-c82ae/us-central1/api/user/setResigned/${this.accounts[i].id}`
+        `http://localhost:5000/facial-recognition-syste-c82ae/us-central1/api/user/setResigned/${this.attendance[i].id}`
         ,body
       ).subscribe((result: any) => {
         console.log(result.success);
@@ -163,12 +168,12 @@ export class attendanceComponent implements OnInit {
       console.log(result.data);
       console.log(result);
       if (result.data == undefined || result.data == null || result.data=='') {
-        this.accounts = result.data;
+        this.attendance = result.data;
       }
       else {
-        this.accounts = result.data;
+        this.attendance = result.data;
       }
-      console.log(this.accounts);
+      console.log(this.attendance);
 
     });
     
@@ -216,5 +221,38 @@ export class attendanceComponent implements OnInit {
         width:'40%', height:'70%', data: element
       })
   }
+
+  getSingleAttendance(element:any){
+    
+    this.mAPI.getSingleAttendance(element.attendanceID).subscribe({
+      next:(res)=>{
+        console.log(res); 
+
+        this.dialog.open(SingleAttendanceComponent,{
+          width:'40%', height:'45%', data: res
+        },)
+      },
+      error:()=>{
+        alert("Failed to Delete Attendance");
+      }
+    })
+
+    
+  }
+  deleteAttendance(element: any){
+    console.log(element);
+    console.log(typeof(element.attendanceID));
+    this.mAPI.deleteAttendance(element.attendanceID).subscribe({
+      next:(res)=>{
+        alert("Attedance Deleted");
+        console.log(res); 
+        this.getAllAttendance();
+      },
+      error:()=>{
+        alert("Failed to Delete Attendance");
+      }
+    })
+  }
+
 
 }
