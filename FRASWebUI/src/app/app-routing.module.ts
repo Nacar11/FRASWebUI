@@ -9,21 +9,17 @@ import { AccountsComponent } from './screens/accounts/accounts.component';
 import { AddAccountComponent } from './screens/add-account/add-account.component';
 import { ScheduleComponent } from './screens/schedule/schedule.component';
 
-
-
-
-
 const routes: Routes = [
   {
     path: '',
     component: DefaultLayoutComponent,
     children: [
       {
-        path:'',
+        path: '',
         component: LoginComponent,
       },
       {
-        path:'login',
+        path: 'login',
         component: LoginComponent,
       },
       {
@@ -34,7 +30,7 @@ const routes: Routes = [
         path: 'accounts',
         component: AccountsComponent,
       },
-    
+
       {
         path: 'register',
         component: RegisterComponent,
@@ -46,12 +42,10 @@ const routes: Routes = [
 
     ],
   },
-
-
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

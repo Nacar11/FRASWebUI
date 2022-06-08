@@ -9,21 +9,26 @@ import { AddAccountComponent } from 'src/app/screens/add-account/add-account.com
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
   events: string[] = [];
   opened: boolean;
+  shown = false;
 
-  constructor(private dialog: MatDialog, private router: Router, public auth: AuthService) {}
+  constructor(
+    private dialog: MatDialog,
+    private router: Router,
+    public auth: AuthService,
+    private api: MockAPIService
+  ) {}
 
-  ngOnInit(): void {
-
-  }
-  openDialogAtt(){
-    this.dialog.open(addAttendannceComponent,{
-      width:'40%', height:'70%'
-    })
+  ngOnInit(): void {}
+  openDialogAtt() {
+    this.dialog.open(addAttendannceComponent, {
+      width: '40%',
+      height: '70%',
+    });
   }
 
   logout() {
@@ -41,4 +46,3 @@ export class NavbarComponent implements OnInit {
     })
   }
 }
-

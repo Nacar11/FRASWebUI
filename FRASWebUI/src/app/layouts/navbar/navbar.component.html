@@ -23,3 +23,15 @@
     
   </mat-toolbar>
   
+
+    <button mat-raised-button color="accent" (click)="nav('schedule')">Add Schedule</button>
+
+
+    <button (click)=" nav( 'accounts' ) " mat-icon-button class=" example-icon favorite-icon " aria-label=" Example icon-button with heart icon ">
+    <mat-icon>supervisor_account</mat-icon>
+  </button>
+    <button (click)=" nav( 'login' ) " mat-icon-button class=" example-icon " aria-label=" Example icon-button with share icon ">
+    <mat-icon>call_missed_outgoing</mat-icon>
+  </button>
+
+</mat-toolbar>
