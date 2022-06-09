@@ -30,7 +30,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { EditComponent } from './screens/edit/edit.component';
+// import { EditComponent } from './screens/edit/edit.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { AccountsComponent } from './screens/accounts/accounts.component';
 import { AddAccountComponent } from './screens/add-account/add-account.component';
@@ -38,6 +38,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
 import { SingleAttendanceComponent } from './screens/single-attendance/single-attendance.component';
 import { ScheduleComponent } from './screens/schedule/schedule.component';
+import {NgxCSVtoJSONModule} from 'ngx-csvto-json';
+import { FacultyViewComponent } from './screens/faculty-view/faculty-view.component';
+
 
 @NgModule({
   declarations: [
@@ -49,11 +52,12 @@ import { ScheduleComponent } from './screens/schedule/schedule.component';
     FooterComponent,
     RegisterComponent,
     addAttendannceComponent,
-    EditComponent,
     AccountsComponent,
     AddAccountComponent,
     SingleAttendanceComponent,
     ScheduleComponent,
+    FacultyViewComponent,
+    
     
   
   ],

@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 
 
 import { MockAPIService } from 'src/app/shared/mock-api.service';
-import { EditComponent } from '../edit/edit.component';
+
 
 @Component({
   selector: 'app-schedule',
@@ -52,6 +52,18 @@ export class ScheduleComponent implements OnInit {
     this.router.navigate([destination]);
   }
 
+
+  async convert(objArray: any) {
+    console.log(objArray);
+    await this.mAPI.addSchedule(objArray).subscribe((value) => {
+      console.log(value);
+      alert('schedule has been added to database');
+      this.ngOnInit();
+    });
+  }
+  onError(err: any) {
+    console.log(err);
+  }
   async getAllSchedule(){
     console.log("asdada");
     this.mAPI.getAllSchedule()
@@ -77,9 +89,5 @@ export class ScheduleComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  editAttendance(element:any){
-    this.dialog.open(EditComponent,{
-      width:'40%', height:'70%', data: element
-    })
-}
+  
 }

@@ -8,6 +8,7 @@ import { addAttendannceComponent } from './screens/addAttendance/addAttendance';
 import { AccountsComponent } from './screens/accounts/accounts.component';
 import { AddAccountComponent } from './screens/add-account/add-account.component';
 import { ScheduleComponent } from './screens/schedule/schedule.component';
+import { FacultyViewComponent } from './screens/faculty-view/faculty-view.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,10 @@ const routes: Routes = [
       {
         path: 'schedule',
         component: ScheduleComponent,
+      },
+      {
+        path: 'facultyView',
+        component: FacultyViewComponent,
       },
 
     ],

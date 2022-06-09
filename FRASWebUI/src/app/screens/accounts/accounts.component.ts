@@ -10,7 +10,9 @@ import { MatDialog } from '@angular/material/dialog';
 
 
 import { MockAPIService } from 'src/app/shared/mock-api.service';
-import { EditComponent } from 'src/app/screens/edit/edit.component';
+
+// import { EditComponent } from 'src/app/screens/edit/edit.component';
+
 
 @Component({
   selector: 'app-accounts',
@@ -65,11 +67,8 @@ export class AccountsComponent implements OnInit {
     }
   }
 
-  editAttendance(element:any){
-      this.dialog.open(EditComponent,{
-        width:'40%', height:'70%', data: element
-      })
-  }
+ 
+  
   deleteAccount(element: any){
     console.log(element);
     console.log(typeof(element.id));
@@ -84,5 +83,71 @@ export class AccountsComponent implements OnInit {
       }
     })
   }
-  
+
+  editOnLeave(element:any){
+    console.log(element.id);
+    console.log(element.onLeave);
+
+    if(element.onLeave){
+      this.mAPI.putOnLeave(element.id, false).subscribe({
+        next:(res)=>{
+          alert("Attendance Edited");
+          console.log(res); 
+          this.getAllAccounts();
+        },
+        error:()=>{
+          alert("Failed to Edit Attendance");
+        }
+      })
+    }
+    else{
+      console.log(element.onLeave);
+      this.mAPI.putOnLeave(element.id, true).subscribe({
+        next:(res)=>{
+          alert("Attendance Edited");
+          console.log(res); 
+          this.getAllAccounts();
+        },
+        error:()=>{
+          alert("Failed to Edit Attendance");
+        }
+      })
+    }
+
+  }
+  editResigned(element:any){
+    console.log(element.id);
+    console.log(typeof(element.id));
+    console.log(element.onLeave);
+    let a = element.id.toString();
+    console.log(typeof(element.id));
+    console.log(a);
+    if(element.onLeave){
+      this.mAPI.putResigned(a, "false").subscribe({
+        next:(res)=>{
+          alert("Attendance Edited");
+          console.log(res); 
+          this.getAllAccounts();
+        },
+        error:()=>{
+          alert("Failed to Edit Attendance");
+        }
+      })
+    }
+    else{
+      
+      console.log(element.onLeave);
+      this.mAPI.putResigned(element.id, true).subscribe({
+        next:(res)=>{
+          alert("Attendance Edited");
+          console.log(res); 
+          this.getAllAccounts();
+        },
+        error:()=>{
+          alert("Failed to Edit Attendance");
+        }
+      })
+    }
+    
+  }
 }

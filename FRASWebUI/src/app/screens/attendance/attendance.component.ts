@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 
 
 import { MockAPIService } from 'src/app/shared/mock-api.service';
-import { EditComponent } from 'src/app/screens/edit/edit.component';
+
 import { SingleAttendanceComponent } from '../single-attendance/single-attendance.component';
 
 @Component({
@@ -216,11 +216,7 @@ export class attendanceComponent implements OnInit {
     }
   }
 
-  editAttendance(element:any){
-      this.dialog.open(EditComponent,{
-        width:'40%', height:'70%', data: element
-      })
-  }
+ 
 
   getSingleAttendance(element:any){
     

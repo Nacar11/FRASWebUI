@@ -29,6 +29,7 @@ export class RegisterComponent implements OnInit {
     id: ['', Validators.required],
     department: ['', Validators.required],
     collegeName: ['', Validators.required],
+    
     onLeave: ['', Validators.required],
     resigned: ['', Validators.required],
     })
@@ -39,21 +40,29 @@ nav(destination: string) {
 }
 
 submit(){
+  console.log("asdasd");
   console.log(this.accountForm.value);
-  if(this.accountForm.valid){
-    this.api.addAttendance(this.accountForm.value)
-    .subscribe({
-      next:(res)=>{
-        console.log(res);
-        alert("Attendance Successfully Added");
-        this.dialog.closeAll();
-        this.nav('account');
-      },
-      error:()=>{
-        alert("Error Getting Attendance");
-      }
-    })
-  }
+  this.accountForm.value.onLeave = false;
+  this.accountForm.value.resigned = false;
+  console.log(this.accountForm.value);
+
+  this.api.addAccount(this.accountForm.value)
+  .subscribe({
+    next:(res)=>{
+      console.log(res);
+      alert("Account Successfully Added");
+      this.dialog.closeAll();
+      this.nav('login');
+    },
+    error:()=>{
+      alert("Error Getting Account");
+    }
+  })
+
+
+
+
+
 }
 
 

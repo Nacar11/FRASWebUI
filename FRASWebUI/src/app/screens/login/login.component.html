@@ -24,18 +24,18 @@
     <div class="fform">
      
       
-  
-      <input type="text" class="text" name="EMAIL" >
-       <span>username</span>
+      <form class="inputs" [formGroup]="loginForm">
+      <input type="text" class="text" name="ID" formControlName="id" >
+       <span>IDENTIFICATION NUMBER</span>
   
       <br>
       
       <br>
   
-      <input type="password" class="text" name="PASSWORD" >
+      <input type="password" class="text" name="PASSWORD" formControlName="password" >
       <span>password</span>
       <br>
-  
+    </form>
       
       <button (click)="login()" class="signin">
         Sign In

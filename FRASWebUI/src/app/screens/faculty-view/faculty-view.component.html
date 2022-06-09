@@ -1,0 +1,57 @@
+<div class="container">
+    <div style="margin-top: 10px;">
+
+        <h2>Attendance List</h2>
+      <div class="st_row">
+        <div class="st_column _rank"></div>
+        <div class="st_column _name">{{element.attendanceID}}</div>
+       
+      </div>
+        <mat-form-field appearance="standard">
+            <mat-label> Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Search Element" #input>
+        </mat-form-field>
+
+
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource">
+  
+      
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Date </th>
+        <td   mat-cell  *matCellDef="let element"> {{element.date}} </td>
+      </ng-container>
+  
+      
+      <ng-container matColumnDef="time">
+        <th mat-header-cell *matHeaderCellDef> Time </th>
+        <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+      </ng-container>
+  
+      
+      <ng-container matColumnDef="remarks">
+        <th mat-header-cell *matHeaderCellDef> Remarks </th>
+        <td mat-cell *matCellDef="let element"> {{element.remarks}} </td>
+      </ng-container>
+  
+
+     
+
+     
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                   showFirstLastButtons 
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+
+  
+
+      </div>
+  </div>
+
+    

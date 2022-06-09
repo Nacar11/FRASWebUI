@@ -50,7 +50,7 @@ submit(){
       next:(res)=>{
         console.log(res);
         console.log(res.id);
-        alert("Attendance Successfully Added");
+        alert("Account Successfully Created");
         this.dialog.closeAll();
         this.nav('accounts');
       },

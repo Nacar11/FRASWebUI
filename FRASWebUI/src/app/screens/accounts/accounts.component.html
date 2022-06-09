@@ -34,19 +34,25 @@
       </ng-container>
       <ng-container matColumnDef="onLeave">
         <th mat-header-cell *matHeaderCellDef> On Leave</th>
-        <td mat-cell *matCellDef="let element"> {{element.onLeave}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.onLeave}} 
+        <button (click)="editOnLeave(element)"mat-button color="warn" >
+          <mat-icon> edit</mat-icon>
+          </button> 
+        </td>
       </ng-container>
       <ng-container matColumnDef="resigned">
         <th mat-header-cell *matHeaderCellDef> Resigned </th>
-        <td mat-cell *matCellDef="let element"> {{element.resigned}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.resigned}} 
+        <button (click)="editResigned(element)"mat-button color="warn" >
+          <mat-icon> edit</mat-icon>
+          </button> 
+        </td>
       </ng-container>
   
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef> Action </th>
         <td mat-cell *matCellDef="let element">
-                <button (click)="editAttendance(element)" mat-button color="primary">
-                <mat-icon> edit</mat-icon>
-                </button> 
+                
                 <button (click)="deleteAccount(element)"mat-button color="warn" >
                     <mat-icon> delete_outline</mat-icon>
                     </button> 

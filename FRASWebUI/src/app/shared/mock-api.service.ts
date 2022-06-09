@@ -9,60 +9,69 @@ export class MockAPIService {
 
   addAttendance(data: any) {
     return this.http.post<any>(
-      'http://localhost:5000/facial-recognition-syste-c82ae/us-central1/api/attendance/add',
+      "https://us-central1-facial-recognition-syste-c82ae.cloudfunctions.net/api/attendance/add",
       data
     );
   }
 
   addSchedule(data: any) {
     return this.http.post<any>(
-      'http://localhost:5000/facial-recognition-syste-c82ae/us-central1/api/schedule/add',
+      "https://us-central1-facial-recognition-syste-c82ae.cloudfunctions.net/api/schedule/add",
       data
     );
   }
   getAttendance() {
     return this.http.get<any>(
-      'http://localhost:5000/facial-recognition-syste-c82ae/us-central1/api/attendance/get/all'
+      "https://us-central1-facial-recognition-syste-c82ae.cloudfunctions.net/api/attendance/get/all"
     );
   }
 
   getAllSchedule() {
     return this.http.get<any>(
-      'http://localhost:5000/facial-recognition-syste-c82ae/us-central1/api/schedule/get/all'
+      "https://us-central1-facial-recognition-syste-c82ae.cloudfunctions.net/api/schedule/get/all"
     );
   }
 
   getAllAccounts() {
     return this.http.get<any>(
-      'http://localhost:5000/facial-recognition-syste-c82ae/us-central1/api/accounts/get/all'
+      "https://us-central1-facial-recognition-syste-c82ae.cloudfunctions.net/api/accounts/get/all"
     );
   }
-
-  getSingleAttendance(id:number){
-    return this.http.get<any>("http://localhost:5000/facial-recognition-syste-c82ae/us-central1/api/attendance/get/"+id)
- }
-
-  getAllSchedule(){
-    return this.http.get<any>("http://localhost:5000/facial-recognition-syste-c82ae/us-central1/api/schedule/get/all")
- }
-
-  getAllAccounts(){
-    return this.http.get<any>("http://localhost:5000/facial-recognition-syste-c82ae/us-central1/api/accounts/get/all")
- }
-
-  putAttendance(data:any, id: number){
-    return this.http.put<any>("http://localhost:3000/attendanceForm"+id, data)
+  getAccountof(id: any) {
+    return this.http.get<any>(
+      "https://us-central1-facial-recognition-syste-c82ae.cloudfunctions.net/api/attendance/get/accountOf/"+id
+    );
   }
-  
+  getSingleAttendance(id:number){
+    return this.http.get<any>("https://us-central1-facial-recognition-syste-c82ae.cloudfunctions.net/api/attendance/get/"+id)
+ }
+
+
+  putOnLeave(id: string, data:any){
+    return this.http.patch<any>("https://us-central1-facial-recognition-syste-c82ae.cloudfunctions.net/api/accounts/setOnleave/"+id, data)
+ }
+ 
+ putResigned(id: string, data:any){
+  return this.http.patch<any>
+  ("https://us-central1-facial-recognition-syste-c82ae.cloudfunctions.net/api/accounts/setResigned/"+id, data)
+}
+
   deleteAttendance(id: number){
-    return this.http.delete<any>("http://localhost:5000/facial-recognition-syste-c82ae/us-central1/api/attendance/delete/"+id)
+    return this.http.delete<any>("https://us-central1-facial-recognition-syste-c82ae.cloudfunctions.net/api/attendance/delete/"+id)
   }
 
   deleteAccount(id: number){
-    return this.http.delete<any>("http://localhost:5000/facial-recognition-syste-c82ae/us-central1/api/accounts/delete/"+id)
+    return this.http.delete<any>("https://us-central1-facial-recognition-syste-c82ae.cloudfunctions.net/api/accounts/delete/"+id)
   }
 
   addAccount(data:any){
-    return this.http.post<any>("http://localhost:5000/facial-recognition-syste-c82ae/us-central1/api/accounts/add",data)
+    return this.http.post<any>("https://us-central1-facial-recognition-syste-c82ae.cloudfunctions.net/api/accounts/add",data)
+  }
+
+  login(data:any){
+    console.log(typeof(data.id));
+    console.log(typeof(data.password));
+    return this.http.get<any>
+    ("https://us-central1-facial-recognition-syste-c82ae.cloudfunctions.net/api/auth/"+data.id+"/"+data.password)
   }
 }

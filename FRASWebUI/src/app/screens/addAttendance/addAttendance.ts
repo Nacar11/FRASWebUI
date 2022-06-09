@@ -119,16 +119,5 @@ export class addAttendannceComponent implements OnInit {
  
   }
 
-  updateAttendance(){
-    this.api.putAttendance(this.attendanceForm, this.editData.id)
-    .subscribe({
-      next:(res)=>{
-        alert("Attendance Updated Successfully");
-        this.attendanceForm.reset();
-        this.dialog.closeAll();
-      },
-      error:(err)=>
-      alert("Error Updating Attendance")
-    })
-  }
+ 
 }
